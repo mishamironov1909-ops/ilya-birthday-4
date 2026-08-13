@@ -2,27 +2,16 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09052b">
-<title>Илье 4 года 🚀</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#03051c">
+<title>Илье 4 года 🚀🦖</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
-
-:root{
-  --bg:#08052b;
-  --purple:#6c3cff;
-  --blue:#20c7ff;
-  --pink:#ff4fa3;
-  --yellow:#ffd84d;
-  --green:#55f28b;
-  --white:#ffffff;
-}
-
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+  -webkit-tap-highlight-color:transparent;
 }
 
 html{
@@ -32,38 +21,45 @@ html{
 body{
   min-height:100vh;
   overflow-x:hidden;
-  color:white;
-  font-family:"Fredoka",sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%,rgba(108,60,255,.35),transparent 30%),
-    radial-gradient(circle at 80% 20%,rgba(32,199,255,.22),transparent 30%),
-    radial-gradient(circle at 50% 80%,rgba(255,79,163,.18),transparent 35%),
-    linear-gradient(180deg,#08052b,#10083d 45%,#070421);
+  background:#03051c;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-/* ЗВЁЗДЫ */
+/* =========================
+   SPACE
+========================= */
 
-.stars{
+.space{
   position:fixed;
   inset:0;
+  overflow:hidden;
   pointer-events:none;
   z-index:0;
+  background:
+    radial-gradient(circle at 50% 30%,#182477 0%,transparent 30%),
+    radial-gradient(circle at 20% 80%,#35145f 0%,transparent 30%),
+    radial-gradient(circle at 90% 20%,#063b69 0%,transparent 30%),
+    #03051c;
+}
+
+.stars{
+  position:absolute;
+  inset:0;
 }
 
 .star{
   position:absolute;
-  width:4px;
-  height:4px;
-  background:white;
   border-radius:50%;
-  box-shadow:0 0 10px white;
-  animation:twinkle 2s infinite alternate;
+  background:#fff;
+  box-shadow:0 0 10px #fff;
+  animation:twinkle 1.5s infinite alternate;
 }
 
 @keyframes twinkle{
   from{
-    opacity:.25;
-    transform:scale(.6);
+    opacity:.15;
+    transform:scale(.5);
   }
   to{
     opacity:1;
@@ -71,605 +67,835 @@ body{
   }
 }
 
-/* ФОНОВЫЕ КРУГИ */
-
-.orb{
-  position:fixed;
-  border-radius:50%;
-  pointer-events:none;
-  filter:blur(3px);
-  z-index:0;
-}
-
-.orb.one{
-  width:250px;
-  height:250px;
-  background:rgba(108,60,255,.25);
-  left:-100px;
-  top:20%;
-  animation:orbMove 8s infinite alternate ease-in-out;
-}
-
-.orb.two{
-  width:200px;
-  height:200px;
-  background:rgba(255,79,163,.18);
-  right:-70px;
-  top:55%;
-  animation:orbMove 7s infinite alternate-reverse ease-in-out;
-}
-
-@keyframes orbMove{
-  to{
-    transform:translateY(-50px) translateX(30px);
-  }
-}
-
-/* КОНФЕТТИ */
-
-#confetti{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:100;
-}
-
-.confetti{
+.nebula{
   position:absolute;
-  top:-30px;
-  width:10px;
-  height:16px;
-  animation:confettiFall linear forwards;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:.22;
 }
 
-@keyframes confettiFall{
-  to{
-    transform:
-      translateY(110vh)
-      translateX(var(--x))
-      rotate(900deg);
+.nebula.one{
+  left:-200px;
+  top:20%;
+  background:#00bfff;
+}
+
+.nebula.two{
+  right:-200px;
+  top:50%;
+  background:#ff2f92;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app{
+  position:relative;
+  z-index:2;
+  max-width:1100px;
+  margin:auto;
+  padding:18px 15px 70px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  text-align:center;
+  padding:20px 10px;
+}
+
+.mini{
+  color:#6eeaff;
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:3px;
+}
+
+.header h1{
+  margin-top:12px;
+  font-size:clamp(45px,12vw,100px);
+  line-height:.85;
+  font-weight:1000;
+  text-shadow:
+    0 8px 0 #15205d,
+    0 0 35px rgba(0,220,255,.5);
+}
+
+.header h1 span{
+  color:#ffd83d;
+  display:inline-block;
+  animation:numberFloat 1.5s ease-in-out infinite;
+}
+
+@keyframes numberFloat{
+  0%,100%{
+    transform:rotate(-5deg) translateY(0);
+  }
+  50%{
+    transform:rotate(5deg) translateY(-10px);
   }
 }
 
-/* ОСНОВНОЙ ЭКРАН */
+.subtitle{
+  margin-top:18px;
+  color:#ff72c8;
+  font-size:clamp(18px,5vw,30px);
+  font-weight:1000;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   position:relative;
-  z-index:2;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:50px 20px;
+  height:540px;
+  margin-top:15px;
+  border-radius:38px;
   overflow:hidden;
+  border:2px solid rgba(255,255,255,.14);
+  background:
+    radial-gradient(circle at 50% 50%,rgba(78,95,255,.18),transparent 40%),
+    rgba(255,255,255,.025);
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.55),
+    inset 0 0 100px rgba(50,100,255,.08);
+  perspective:1000px;
+  transition:transform .2s ease;
 }
 
-.hero-content{
-  width:min(1100px,100%);
-  text-align:center;
+/* planet */
+
+.planet{
+  position:absolute;
+  width:150px;
+  height:150px;
+  right:8%;
+  top:70px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 30%,#ff9b5a,#d7443e 45%,#681f5d 80%);
+  box-shadow:
+    -20px 20px 40px rgba(0,0,0,.5),
+    0 0 50px rgba(255,80,130,.25);
+  animation:planetFloat 5s ease-in-out infinite;
 }
 
-/* МАЛЕНЬКАЯ НАДПИСЬ */
-
-.badge{
-  display:inline-block;
-  padding:10px 20px;
-  border:2px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(15px);
-  border-radius:50px;
-  font-size:14px;
-  font-weight:700;
-  animation:badgeFloat 3s infinite ease-in-out;
+.planet:before,
+.planet:after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  background:rgba(80,15,80,.2);
 }
 
-@keyframes badgeFloat{
-  50%{
-    transform:translateY(-8px);
-  }
+.planet:before{
+  width:30px;
+  height:18px;
+  left:40px;
+  top:45px;
 }
 
-/* ЗАГОЛОВОК */
-
-.title{
-  margin-top:25px;
-  font-size:clamp(55px,12vw,150px);
-  line-height:.82;
-  font-weight:800;
-  letter-spacing:-5px;
-  text-shadow:
-    0 10px 0 rgba(0,0,0,.15),
-    0 0 35px rgba(32,199,255,.35);
-  animation:titleAppear 1.2s ease both;
+.planet:after{
+  width:18px;
+  height:12px;
+  right:30px;
+  bottom:35px;
 }
 
-.title .ilya{
-  display:block;
-  background:linear-gradient(
-    90deg,
-    #20c7ff,
-    #8b6cff,
-    #ff4fa3,
-    #ffd84d
-  );
-  background-size:300%;
-  -webkit-background-clip:text;
-  color:transparent;
-  animation:gradientMove 5s infinite linear;
-}
-
-.title .four{
-  display:block;
-  color:#ffd84d;
-  font-size:1.3em;
-  text-shadow:
-    0 0 15px #ffd84d,
-    0 0 50px rgba(255,216,77,.5);
-  animation:fourBounce 2s infinite ease-in-out;
-}
-
-@keyframes titleAppear{
-  from{
-    opacity:0;
-    transform:translateY(50px) scale(.8);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-
-@keyframes gradientMove{
-  to{
-    background-position:300%;
-  }
-}
-
-@keyframes fourBounce{
+@keyframes planetFloat{
   0%,100%{
-    transform:translateY(0) rotate(-2deg);
+    transform:translateY(0) rotate(0);
   }
   50%{
-    transform:translateY(-15px) rotate(2deg);
+    transform:translateY(-15px) rotate(8deg);
   }
 }
 
-/* ПОДЗАГОЛОВОК */
+/* rings */
 
-.subtitle{
-  margin-top:25px;
-  font-size:clamp(22px,4vw,38px);
-  font-weight:700;
+.ring{
+  position:absolute;
+  width:230px;
+  height:65px;
+  right:4%;
+  top:110px;
+  border:8px solid rgba(255,221,110,.55);
+  border-radius:50%;
+  transform:rotate(-15deg);
+  pointer-events:none;
 }
 
-.subtitle span{
-  color:#55f28b;
+/* moon */
+
+.moon{
+  position:absolute;
+  width:65px;
+  height:65px;
+  left:10%;
+  top:75px;
+  border-radius:50%;
+  background:#eeeaff;
+  box-shadow:0 0 35px rgba(210,210,255,.5);
 }
 
-/* РАКЕТА */
-
-.space{
-  position:relative;
-  height:280px;
-  margin-top:20px;
+.moon:after{
+  content:"";
+  position:absolute;
+  width:14px;
+  height:10px;
+  background:#cbc8dc;
+  border-radius:50%;
+  left:15px;
+  top:20px;
 }
+
+/* shooting stars */
+
+.shooting{
+  position:absolute;
+  width:120px;
+  height:3px;
+  background:linear-gradient(90deg,transparent,#fff);
+  transform:rotate(-25deg);
+  animation:shoot 5s linear infinite;
+}
+
+.shooting.one{
+  top:120px;
+  left:-150px;
+}
+
+.shooting.two{
+  top:240px;
+  left:-300px;
+  animation-delay:2.5s;
+}
+
+@keyframes shoot{
+  0%{
+    transform:translate(0,0) rotate(-25deg);
+    opacity:0;
+  }
+  10%{
+    opacity:1;
+  }
+  45%{
+    transform:translate(1000px,350px) rotate(-25deg);
+    opacity:0;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+/* =========================
+   ROCKET
+========================= */
 
 .rocket{
   position:absolute;
-  left:50%;
-  top:50%;
-  width:110px;
+  width:100px;
   height:180px;
-  transform:translate(-50%,-50%) rotate(12deg);
-  animation:rocketFloat 3s infinite ease-in-out;
-  filter:drop-shadow(0 0 25px rgba(32,199,255,.5));
+  left:50%;
+  top:120px;
+  transform:translateX(-50%);
+  z-index:5;
+  animation:rocketFloat 2.2s ease-in-out infinite;
 }
 
 @keyframes rocketFloat{
   0%,100%{
-    transform:translate(-50%,-50%) rotate(12deg);
+    transform:translateX(-50%) translateY(0) rotate(0);
   }
   50%{
-    transform:translate(-50%,-65%) rotate(5deg);
+    transform:translateX(-50%) translateY(-15px) rotate(2deg);
   }
 }
 
 .rocket-body{
   position:absolute;
-  width:70px;
-  height:115px;
-  left:20px;
+  left:15px;
   top:20px;
-  border-radius:50% 50% 42% 42%;
-  background:linear-gradient(135deg,#fff,#dce8ff);
-  box-shadow:inset -12px -10px 20px rgba(108,60,255,.2);
+  width:70px;
+  height:120px;
+  border-radius:50px 50px 20px 20px;
+  background:linear-gradient(90deg,#d8e9ff,#fff,#b7d4ff);
+  box-shadow:
+    0 0 25px rgba(120,210,255,.5),
+    inset -12px 0 20px rgba(70,100,180,.25);
 }
 
-.rocket-window{
+.nose{
   position:absolute;
-  width:34px;
-  height:34px;
+  left:15px;
+  top:0;
+  width:70px;
+  height:55px;
+  background:#ff477e;
+  border-radius:70px 70px 0 0;
+}
+
+.window{
+  position:absolute;
+  left:32px;
+  top:53px;
+  width:36px;
+  height:36px;
   border-radius:50%;
-  left:18px;
-  top:30px;
-  background:linear-gradient(135deg,#20c7ff,#6c3cff);
-  border:5px solid #fff;
-  box-shadow:0 0 20px #20c7ff;
+  background:
+    radial-gradient(circle at 30% 30%,#bfffff,#229edb 60%,#103c8b);
+  border:5px solid #586a9b;
+  box-shadow:0 0 15px #40dfff;
 }
 
 .fin{
   position:absolute;
   width:30px;
-  height:50px;
+  height:55px;
+  background:#ff477e;
   bottom:20px;
-  background:#ff4fa3;
 }
 
 .fin.left{
-  left:5px;
-  border-radius:20px 0 0 5px;
-  transform:skewY(25deg);
+  left:-7px;
+  clip-path:polygon(100% 0,100% 100%,0 100%);
 }
 
 .fin.right{
-  right:5px;
-  border-radius:0 20px 5px 0;
-  transform:skewY(-25deg);
+  right:-7px;
+  clip-path:polygon(0 0,100% 100%,0 100%);
 }
 
-.fire{
+.flame{
   position:absolute;
-  left:36px;
-  top:125px;
-  width:38px;
-  height:70px;
-  background:linear-gradient(#ffd84d,#ff7b00,transparent);
-  clip-path:polygon(20% 0,80% 0,100% 100%,50% 75%,0 100%);
-  animation:fire 0.25s infinite alternate;
-}
-
-@keyframes fire{
-  to{
-    height:90px;
-    transform:scaleX(.8);
-  }
-}
-
-/* ПЛАНЕТЫ */
-
-.planet{
-  position:absolute;
-  border-radius:50%;
-  animation:planetFloat 4s infinite ease-in-out;
-}
-
-.planet.blue{
-  width:75px;
+  left:27px;
+  top:132px;
+  width:46px;
   height:75px;
-  left:12%;
-  top:25%;
   background:
-    radial-gradient(circle at 30% 30%,#7de9ff,#2467ff 60%,#142080);
-  box-shadow:0 0 30px rgba(32,199,255,.5);
+    linear-gradient(#fff,#ffd43b 35%,#ff672d 70%,transparent);
+  clip-path:polygon(50% 100%,0 0,35% 35%,50% 0,65% 35%,100% 0);
+  filter:drop-shadow(0 0 15px #ff8c24);
+  animation:flame .15s infinite alternate;
 }
 
-.planet.pink{
-  width:55px;
-  height:55px;
-  right:15%;
-  top:30%;
-  background:linear-gradient(135deg,#ff9bd0,#ff3d91);
-  box-shadow:0 0 30px rgba(255,79,163,.5);
-}
-
-.planet.yellow{
-  width:40px;
-  height:40px;
-  left:20%;
-  bottom:15%;
-  background:#ffd84d;
-  box-shadow:0 0 30px rgba(255,216,77,.6);
-}
-
-@keyframes planetFloat{
-  50%{
-    transform:translateY(-20px) rotate(20deg);
+@keyframes flame{
+  from{
+    transform:scaleY(.85);
+  }
+  to{
+    transform:scaleY(1.15);
   }
 }
 
-/* КНОПКИ */
+/* =========================
+   HERO TEXT
+========================= */
 
-.buttons{
+.heroText{
+  position:absolute;
+  z-index:10;
+  left:20px;
+  right:20px;
+  bottom:28px;
+  text-align:center;
+}
+
+.heroText h2{
+  font-size:clamp(25px,7vw,50px);
+  font-weight:1000;
+  text-shadow:0 4px 15px #000;
+}
+
+.heroText p{
+  margin-top:8px;
+  color:#cbd6ff;
+  font-size:14px;
+}
+
+.launch{
+  margin-top:15px;
+  border:0;
+  border-radius:20px;
+  padding:15px 25px;
+  color:white;
+  font-weight:1000;
+  font-size:15px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#ff3978,#754dff);
+  box-shadow:0 8px 0 #351879,0 15px 30px rgba(0,0,0,.4);
+}
+
+.launch:active{
+  transform:translateY(7px);
+  box-shadow:0 2px 0 #351879;
+}
+
+/* =========================
+   GAME PANEL
+========================= */
+
+.panel{
+  margin-top:25px;
+  padding:22px;
+  border-radius:30px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(15px);
+  box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+
+.panelTitle{
+  text-align:center;
+  font-size:27px;
+  font-weight:1000;
+}
+
+.panelSub{
+  margin-top:7px;
+  text-align:center;
+  color:#aebcff;
+  font-size:14px;
+}
+
+.score{
   display:flex;
   justify-content:center;
-  gap:15px;
   flex-wrap:wrap;
-  margin-top:20px;
+  gap:10px;
+  margin:18px 0;
 }
 
-.btn{
-  border:none;
-  cursor:pointer;
-  color:white;
-  padding:16px 28px;
-  border-radius:50px;
-  font-size:16px;
-  font-weight:700;
-  transition:.3s;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
+.badge{
+  padding:10px 17px;
+  border-radius:15px;
+  background:rgba(0,0,0,.25);
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.1);
 }
 
-.btn:hover{
-  transform:translateY(-6px) scale(1.04);
-}
-
-.btn-main{
-  background:linear-gradient(135deg,#ff4fa3,#8b5cff);
-}
-
-.btn-green{
-  background:linear-gradient(135deg,#20c7ff,#55f28b);
-  color:#071027;
-}
-
-/* СЕКЦИЯ */
-
-.section{
+.gameArea{
   position:relative;
-  z-index:2;
-  padding:100px 20px;
+  height:360px;
+  border-radius:25px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(70,90,255,.15),transparent 40%),
+    #05082b;
+  border:2px solid rgba(255,255,255,.1);
 }
 
-.container{
-  width:min(1100px,100%);
-  margin:auto;
+/* =========================
+   GAME ROCKET
+========================= */
+
+.gameRocket{
+  position:absolute;
+  left:45px;
+  top:50%;
+  width:65px;
+  height:110px;
+  transform:translateY(-50%) rotate(90deg);
+  z-index:10;
+  transition:top .25s ease;
 }
 
-.glass{
-  padding:40px;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:35px;
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(20px);
-  box-shadow:0 30px 80px rgba(0,0,0,.25);
+.gameRocket .rocket-body{
+  transform:scale(.65);
+  transform-origin:top left;
 }
 
-.section-title{
-  text-align:center;
-  font-size:clamp(40px,7vw,75px);
-  font-weight:800;
-  line-height:1;
-}
+/* =========================
+   COLLECTIBLE STARS
+========================= */
 
-.section-title span{
-  color:#20c7ff;
-}
-
-.message{
-  margin-top:30px;
-  text-align:center;
-  font-size:clamp(21px,3vw,30px);
-  line-height:1.6;
-}
-
-.message strong{
-  color:#ffd84d;
-}
-
-/* КАРТОЧКИ */
-
-.cards{
-  margin-top:50px;
+.collectStar{
+  position:absolute;
+  width:38px;
+  height:38px;
+  cursor:pointer;
+  font-size:35px;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  place-items:center;
+  animation:collectFloat 1s ease-in-out infinite alternate;
+  filter:drop-shadow(0 0 10px #ffe13b);
+  user-select:none;
 }
 
-.card{
-  padding:30px 20px;
+@keyframes collectFloat{
+  from{
+    transform:translateY(0) rotate(-10deg);
+  }
+  to{
+    transform:translateY(-12px) rotate(10deg);
+  }
+}
+
+/* =========================
+   DINOSAUR
+========================= */
+
+.dinoSection{
+  margin-top:25px;
   text-align:center;
+}
+
+.dinoWorld{
+  position:relative;
+  height:390px;
+  margin-top:20px;
+  overflow:hidden;
   border-radius:30px;
-  background:linear-gradient(
-    145deg,
-    rgba(32,199,255,.12),
-    rgba(255,79,163,.08)
-  );
-  border:1px solid rgba(255,255,255,.12);
-  transition:.4s;
+  background:
+    linear-gradient(180deg,#5fd7ff 0%,#baf1ff 48%,#51c76c 49%,#14733d 100%);
+  border:2px solid rgba(255,255,255,.15);
+  box-shadow:0 25px 70px rgba(0,0,0,.4);
 }
 
-.card:hover{
-  transform:
-    translateY(-12px)
-    rotateX(5deg)
-    rotateY(-5deg);
-  box-shadow:0 25px 50px rgba(0,0,0,.3);
+.sun{
+  position:absolute;
+  width:85px;
+  height:85px;
+  right:45px;
+  top:35px;
+  border-radius:50%;
+  background:#ffe65c;
+  box-shadow:0 0 40px #ffe65c;
 }
 
-.card-icon{
-  font-size:55px;
-  margin-bottom:15px;
+.mountain{
+  position:absolute;
+  bottom:110px;
+  width:400px;
+  height:180px;
+  background:#5264a0;
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+  opacity:.7;
 }
 
-.card h3{
-  font-size:24px;
+.mountain.one{
+  left:-100px;
 }
 
-.card p{
-  margin-top:10px;
-  color:#c6c0d5;
-  line-height:1.5;
+.mountain.two{
+  right:-100px;
+  transform:scale(1.3);
 }
 
-/* ПОДАРОК */
+/* dinosaur */
 
-.gift-section{
+.dino{
+  position:absolute;
+  left:50%;
+  bottom:55px;
+  transform:translateX(-50%);
+  font-size:125px;
+  cursor:pointer;
+  user-select:none;
+  filter:
+    drop-shadow(0 15px 10px rgba(0,0,0,.35))
+    drop-shadow(0 0 20px rgba(47,255,135,.2));
+  animation:dinoIdle 1.4s ease-in-out infinite;
+  transition:.2s;
+}
+
+@keyframes dinoIdle{
+  0%,100%{
+    transform:translateX(-50%) translateY(0) rotate(-2deg);
+  }
+  50%{
+    transform:translateX(-50%) translateY(-8px) rotate(2deg);
+  }
+}
+
+.dino.jump{
+  animation:dinoJump .7s ease;
+}
+
+@keyframes dinoJump{
+  0%{
+    transform:translateX(-50%) translateY(0) scale(1);
+  }
+  50%{
+    transform:translateX(-50%) translateY(-90px) scale(1.15);
+  }
+  100%{
+    transform:translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.dinoText{
+  position:absolute;
+  left:20px;
+  bottom:20px;
+  right:20px;
+  color:#fff;
   text-align:center;
+  font-weight:900;
+  font-size:14px;
+  text-shadow:0 2px 5px #06472b;
+}
+
+/* =========================
+   DINOSAUR EGGS
+========================= */
+
+.eggs{
+  position:absolute;
+  left:15px;
+  right:15px;
+  bottom:35px;
+  display:flex;
+  justify-content:space-around;
+}
+
+.egg{
+  font-size:40px;
+  cursor:pointer;
+  transition:.2s;
+  user-select:none;
+}
+
+.egg:active{
+  transform:scale(1.4) rotate(20deg);
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.giftArea{
+  margin-top:25px;
+  padding:30px 15px;
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 0,rgba(255,214,60,.2),transparent 40%),
+    rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
 }
 
 .gift{
-  width:180px;
-  height:160px;
-  margin:45px auto;
+  width:170px;
+  height:145px;
+  margin:25px auto;
   position:relative;
   cursor:pointer;
-  animation:giftFloat 3s infinite ease-in-out;
+  transition:.3s;
 }
 
-@keyframes giftFloat{
-  50%{
-    transform:translateY(-15px) rotate(2deg);
-  }
+.gift:hover{
+  transform:rotateY(15deg) rotateX(-10deg) scale(1.08);
 }
 
-.gift-box{
+.box{
   position:absolute;
   bottom:0;
-  left:10px;
-  width:160px;
-  height:110px;
-  border-radius:15px;
-  background:linear-gradient(135deg,#ff4fa3,#7b42ff);
-  box-shadow:0 20px 40px rgba(255,79,163,.3);
+  left:15px;
+  width:140px;
+  height:100px;
+  border-radius:8px;
+  background:linear-gradient(135deg,#ff3e83,#bd1550);
+  box-shadow:0 20px 30px rgba(0,0,0,.4);
 }
 
-.gift-lid{
+.box:after{
+  content:"";
   position:absolute;
-  top:35px;
-  left:0;
-  width:180px;
-  height:40px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#ff74b5,#9a67ff);
+  left:57px;
+  top:0;
+  width:27px;
+  height:100%;
+  background:#ffd83d;
 }
 
-.ribbon-v{
+.lid{
+  position:absolute;
+  left:5px;
+  top:28px;
+  width:160px;
+  height:32px;
+  border-radius:8px;
+  background:#ff5994;
+  box-shadow:0 7px 0 #8d1640;
+}
+
+.ribbon{
   position:absolute;
   left:72px;
-  top:35px;
-  width:35px;
-  height:110px;
-  background:#ffd84d;
-}
-
-.ribbon-h{
-  position:absolute;
-  left:0;
-  top:37px;
-  width:180px;
-  height:25px;
-  background:#ffd84d;
+  top:0;
+  width:27px;
+  height:55px;
+  background:#ffd83d;
 }
 
 .bow{
   position:absolute;
   top:0;
-  left:55px;
-  font-size:65px;
+  width:50px;
+  height:35px;
+  border-radius:50%;
+  background:#ffd83d;
 }
 
-.gift-text{
-  margin-top:20px;
-  font-size:20px;
-  color:#ffd84d;
+.bow.left{
+  left:35px;
+  transform:rotate(25deg);
 }
 
-/* ФИНАЛ */
+.bow.right{
+  right:35px;
+  transform:rotate(-25deg);
+}
+
+/* =========================
+   FINAL MESSAGE
+========================= */
 
 .final{
-  min-height:80vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display:none;
+  margin-top:25px;
+  padding:35px 20px;
   text-align:center;
+  border-radius:35px;
+  background:
+    radial-gradient(circle at 50% 0,rgba(255,215,59,.2),transparent 45%),
+    linear-gradient(135deg,rgba(255,55,125,.1),rgba(60,80,255,.12));
+  border:2px solid rgba(255,215,59,.35);
+  animation:finalIn .8s ease;
+}
+
+.final.show{
+  display:block;
+}
+
+@keyframes finalIn{
+  from{
+    opacity:0;
+    transform:scale(.7) translateY(50px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+.finalEmoji{
+  font-size:70px;
 }
 
 .final h2{
-  font-size:clamp(45px,8vw,95px);
-  line-height:.95;
+  margin-top:10px;
+  color:#ffd83d;
+  font-size:clamp(30px,8vw,55px);
+  text-shadow:0 0 25px rgba(255,216,61,.4);
 }
 
-.final h2 span{
-  display:block;
-  color:#ff4fa3;
-}
-
-.final-message{
-  margin-top:30px;
-  font-size:clamp(23px,4vw,35px);
-  line-height:1.5;
+.final p{
+  margin-top:20px;
+  font-size:18px;
+  line-height:1.7;
 }
 
 .signature{
-  margin-top:35px;
-  color:#20c7ff;
-  font-size:22px;
-  font-weight:700;
+  margin-top:25px;
+  color:#65eaff;
+  font-size:20px;
+  font-weight:1000;
 }
 
-/* ФУТЕР */
+/* =========================
+   CONFETTI
+========================= */
 
-footer{
-  position:relative;
-  z-index:2;
-  padding:35px 20px;
+.confetti{
+  position:fixed;
+  top:-30px;
+  width:10px;
+  height:16px;
+  z-index:100;
+  pointer-events:none;
+  animation:confetti 3s linear forwards;
+}
+
+@keyframes confetti{
+  to{
+    transform:translateY(110vh) rotate(900deg);
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
   text-align:center;
-  color:#918ba7;
-  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:30px;
+  color:#8290bf;
+  font-size:12px;
+  line-height:1.8;
 }
 
-/* МОБИЛЬНАЯ ВЕРСИЯ */
+.footer strong{
+  color:#ff71c7;
+}
 
-@media(max-width:700px){
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .app{
+    padding:12px 10px 50px;
+  }
 
   .hero{
-    padding-top:40px;
-  }
-
-  .title{
-    letter-spacing:-2px;
-  }
-
-  .space{
-    height:230px;
+    height:520px;
+    border-radius:28px;
   }
 
   .rocket{
-    transform:translate(-50%,-50%) scale(.8) rotate(12deg);
+    top:115px;
+    transform:translateX(-50%) scale(.8);
   }
 
-  .planet.blue{
-    left:2%;
+  .planet{
+    width:90px;
+    height:90px;
+    right:5%;
+    top:55px;
   }
 
-  .planet.pink{
-    right:2%;
+  .ring{
+    width:140px;
+    height:40px;
+    right:1%;
+    top:80px;
+    border-width:5px;
   }
 
-  .cards{
-    grid-template-columns:1fr;
+  .moon{
+    width:45px;
+    height:45px;
   }
 
-  .glass{
-    padding:25px 18px;
+  .gameArea{
+    height:330px;
   }
 
-  .section{
-    padding:70px 15px;
+  .dinoWorld{
+    height:360px;
   }
 
-  .badge{
-    font-size:11px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *::before,
-  *::after{
-    animation:none!important;
-    scroll-behavior:auto!important;
+  .dino{
+    font-size:100px;
   }
 }
 </style>
@@ -677,100 +903,123 @@ footer{
 
 <body>
 
-<div class="stars" id="stars"></div>
-<div class="orb one"></div>
-<div class="orb two"></div>
-<div id="confetti"></div>
+<!-- SPACE BACKGROUND -->
 
-<!-- ГЛАВНЫЙ ЭКРАН -->
+<div class="space">
 
-<section class="hero">
+  <div class="stars" id="stars"></div>
 
-  <div class="hero-content">
+  <div class="nebula one"></div>
+  <div class="nebula two"></div>
+
+</div>
+
+
+<div class="app">
+
+<div class="header">
+
+  <div class="mini">
+    🚀 КОСМИЧЕСКОЕ ПРИКЛЮЧЕНИЕ
+  </div>
+
+  <h1>
+    ИЛЬЯ <span>4</span>
+  </h1>
+
+  <div class="subtitle">
+    🎂 С ДНЁМ РОЖДЕНИЯ! 🎂
+  </div>
+
+</div>
+
+
+<!-- HERO -->
+
+<div class="hero" id="hero">
+
+  <div class="moon"></div>
+
+  <div class="planet"></div>
+  <div class="ring"></div>
+
+  <div class="shooting one"></div>
+  <div class="shooting two"></div>
+
+  <!-- ROCKET -->
+
+  <div class="rocket">
+
+    <div class="nose"></div>
+
+    <div class="rocket-body"></div>
+
+    <div class="window"></div>
+
+    <div class="fin left"></div>
+    <div class="fin right"></div>
+
+    <div class="flame"></div>
+
+  </div>
+
+
+  <div class="heroText">
+
+    <h2>
+      🚀 ИЛЬЯ, ПОЛЕТЕЛИ!
+    </h2>
+
+    <p>
+      Тебя ждёт самое крутое космическое приключение!
+    </p>
+
+    <button class="launch" onclick="launchRocket()">
+      🚀 ЗАПУСТИТЬ РАКЕТУ
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- SPACE GAME -->
+
+<div class="panel">
+
+  <div class="panelTitle">
+    ⭐ КОСМИЧЕСКАЯ МИССИЯ
+  </div>
+
+  <div class="panelSub">
+    Управляй ракетой и собирай звёзды!
+  </div>
+
+  <div class="score">
 
     <div class="badge">
-      🚀 КОСМИЧЕСКОЕ ПРИКЛЮЧЕНИЕ НАЧИНАЕТСЯ
+      ⭐ Звёзды: <span id="score">0</span>
     </div>
 
-    <h1 class="title">
-      <span class="ilya">ИЛЬЕ</span>
-      <span class="four">4</span>
-      <span class="ilya">ГОДА!</span>
-    </h1>
-
-    <div class="subtitle">
-      🎉 С ДНЁМ РОЖДЕНИЯ, <span>ИЛЬЯ!</span> 🎉
+    <div class="badge">
+      🚀 Миссия: <span id="mission">0</span>/10
     </div>
 
-    <div class="space">
+  </div>
 
-      <div class="planet blue"></div>
-      <div class="planet pink"></div>
-      <div class="planet yellow"></div>
+
+  <div class="gameArea" id="gameArea">
+
+    <div class="gameRocket" id="gameRocket">
 
       <div class="rocket">
 
+        <div class="nose"></div>
         <div class="rocket-body"></div>
-        <div class="rocket-window"></div>
-
+        <div class="window"></div>
         <div class="fin left"></div>
         <div class="fin right"></div>
-
-        <div class="fire"></div>
-
-      </div>
-
-    </div>
-
-    <div class="buttons">
-
-      <button class="btn btn-main" onclick="launchConfetti()">
-        🎉 ЗАПУСТИТЬ ПРАЗДНИК
-      </button>
-
-      <button class="btn btn-green" onclick="document.getElementById('message').scrollIntoView()">
-        🚀 ПОЛЕТЕЛИ!
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ПОЗДРАВЛЕНИЕ -->
-
-<section class="section" id="message">
-
-  <div class="container">
-
-    <div class="glass">
-
-      <h2 class="section-title">
-        ПРИВЕТ, <span>ИЛЬЯ!</span> 👋
-      </h2>
-
-      <div class="message">
-
-        Сегодня тебе уже <strong>4 года!</strong> 🎂
-
-        <br><br>
-
-        Поэтому сегодня начинается
-        настоящее большое приключение! 🚀
-
-        <br><br>
-
-        Желаю тебе много-много
-        <strong>радости, игрушек, смеха,
-        весёлых игр и крутых приключений!</strong>
-
-        <br><br>
-
-        Пусть каждый день будет
-        таким же интересным,
-        как путешествие в космос! 🌌
+        <div class="flame"></div>
 
       </div>
 
@@ -778,224 +1027,658 @@ footer{
 
   </div>
 
-</section>
+
+  <div style="text-align:center;margin-top:15px;">
+
+    <button class="launch" onclick="startSpaceGame()">
+      🌟 НАЧАТЬ МИССИЮ
+    </button>
+
+  </div>
+
+</div>
 
 
-<!-- КРУТЫЕ ШТУКИ -->
+<!-- DINOSAURS -->
 
-<section class="section">
+<div class="dinoSection">
 
-  <div class="container">
+  <div class="panelTitle">
+    🦖 ПЛАНЕТА ДИНОЗАВРОВ
+  </div>
 
-    <h2 class="section-title">
-      ТВОЯ МИССИЯ 🚀
-    </h2>
+  <div class="panelSub">
+    Здесь живут древние друзья Ильи!
+  </div>
 
-    <div class="cards">
 
-      <div class="card">
+  <div class="dinoWorld">
 
-        <div class="card-icon">🚀</div>
+    <div class="sun"></div>
 
-        <h3>ПОЛЕТЕТЬ</h3>
+    <div class="mountain one"></div>
+    <div class="mountain two"></div>
 
-        <p>
-          Отправиться навстречу
-          новым приключениям!
-        </p>
+    <div class="dino" id="dino" onclick="dinoJump()">
+      🦖
+    </div>
 
+    <div class="eggs">
+
+      <div class="egg" onclick="eggClick(this)">
+        🥚
       </div>
 
-      <div class="card">
-
-        <div class="card-icon">🦖</div>
-
-        <h3>ИССЛЕДОВАТЬ</h3>
-
-        <p>
-          Найти самых крутых
-          динозавров и сокровища!
-        </p>
-
+      <div class="egg" onclick="eggClick(this)">
+        🥚
       </div>
 
-      <div class="card">
-
-        <div class="card-icon">⭐</div>
-
-        <h3>МЕЧТАТЬ</h3>
-
-        <p>
-          Придумать тысячу
-          невероятных приключений!
-        </p>
-
+      <div class="egg" onclick="eggClick(this)">
+        🥚
       </div>
 
+      <div class="egg" onclick="eggClick(this)">
+        🥚
+      </div>
+
+    </div>
+
+    <div class="dinoText">
+      👆 Нажми на динозавра!
     </div>
 
   </div>
 
-</section>
+</div>
 
 
-<!-- ПОДАРОК -->
+<!-- GIFT -->
 
-<section class="section gift-section">
+<div class="giftArea">
 
-  <div class="container">
+  <div class="panelTitle">
+    🎁 СЕКРЕТНЫЙ ПОДАРОК
+  </div>
 
-    <div class="glass">
+  <div class="panelSub">
+    Илья, кажется, мы нашли кое-что для тебя...
+  </div>
 
-      <h2 class="section-title">
-        А ТУТ... 🎁
-      </h2>
 
-      <div
-        class="gift"
-        onclick="openGift()"
-      >
+  <div class="gift" onclick="openGift()">
 
-        <div class="bow">🎀</div>
+    <div class="bow left"></div>
+    <div class="bow right"></div>
 
-        <div class="gift-lid"></div>
+    <div class="ribbon"></div>
 
-        <div class="gift-box"></div>
+    <div class="lid"></div>
 
-        <div class="ribbon-v"></div>
-
-        <div class="ribbon-h"></div>
-
-      </div>
-
-      <div class="gift-text" id="giftText">
-        Нажми на подарок! 👆
-      </div>
-
-    </div>
+    <div class="box"></div>
 
   </div>
 
-</section>
+  <button class="launch" onclick="openGift()">
+    🎁 ОТКРЫТЬ!
+  </button>
+
+</div>
 
 
-<!-- ФИНАЛ -->
+<!-- FINAL -->
 
-<section class="section final">
+<div class="final" id="final">
 
-  <div>
-
-    <h2>
-      ИЛЬЯ,
-      <span>ТЫ СУПЕР! ⭐</span>
-    </h2>
-
-    <div class="final-message">
-
-      Желаю тебе самого
-      <strong>крутого</strong> четвёртого года! 🎂
-
-      <br><br>
-
-      Пусть будет много
-      смеха, игр, приключений
-      и счастливых моментов! 💙
-
-    </div>
-
-    <div class="signature">
-      ❤️ От твоего дяди Миши
-    </div>
-
+  <div class="finalEmoji">
+    🎉🚀🦖🎂🎁
   </div>
 
-</section>
+  <h2>
+    ИЛЬЕ 4 ГОДА!
+  </h2>
+
+  <p>
+
+    Илья, с днём рождения! 🥳
+
+    <br><br>
+
+    Тебе уже целых <strong>4 года!</strong>
+
+    <br><br>
+
+    Желаю тебе огромных приключений,
+    крутых машин,
+    динозавров,
+    ракет,
+    космоса,
+    много-много игр,
+    смеха и радости! 🚀🦖⭐
+
+    <br><br>
+
+    Пусть каждый день будет
+    настоящим приключением!
+
+  </p>
+
+  <div class="signature">
+    ❤️ Твой дядя Миша
+  </div>
+
+</div>
 
 
-<footer>
-  🎂 ИЛЬЕ 4 ГОДА · С ДНЁМ РОЖДЕНИЯ, ИЛЬЯ! 🚀
-</footer>
+<div class="footer">
+
+  Сделано специально для Ильи ❤️
+
+  <br>
+
+  14 августа · 4 года 🎂
+
+  <br><br>
+
+  <strong>КОСМИЧЕСКАЯ МИССИЯ ИЛЬИ ЗАВЕРШЕНА 🚀</strong>
+
+</div>
+
+</div>
 
 
 <script>
 
-/* ЗВЁЗДЫ */
+/* =====================================
+   ЗВЁЗДЫ
+===================================== */
 
-const stars = document.getElementById("stars");
+const stars=
+document.getElementById("stars");
 
-for(let i=0;i<100;i++){
+for(let i=0;i<120;i++){
 
-  const star = document.createElement("div");
+  const star=
+  document.createElement("div");
 
   star.className="star";
 
-  star.style.left=Math.random()*100+"%";
-  star.style.top=Math.random()*100+"%";
-
-  const size=2+Math.random()*4;
+  const size=
+  1+Math.random()*4;
 
   star.style.width=size+"px";
   star.style.height=size+"px";
 
+  star.style.left=
+  Math.random()*100+"%";
+
+  star.style.top=
+  Math.random()*100+"%";
+
   star.style.animationDelay=
-    Math.random()*3+"s";
+  Math.random()*2+"s";
 
   stars.appendChild(star);
 }
 
 
-/* КОНФЕТТИ */
+/* =====================================
+   3D ПАРАЛЛАКС
+===================================== */
 
-function createConfetti(){
+const hero=
+document.getElementById("hero");
 
-  const colors=[
-    "#ff4fa3",
-    "#20c7ff",
-    "#ffd84d",
-    "#55f28b",
-    "#8b5cff",
-    "#ffffff"
-  ];
+document.addEventListener("mousemove",(e)=>{
 
-  const item=document.createElement("div");
+  if(window.innerWidth<700)return;
 
-  item.className="confetti";
+  const x=
+  e.clientX/window.innerWidth-.5;
 
-  item.style.left=
-    Math.random()*100+"%";
+  const y=
+  e.clientY/window.innerHeight-.5;
 
-  item.style.background=
-    colors[Math.floor(Math.random()*colors.length)];
+  hero.style.transform=
+  `
+  perspective(1000px)
+  rotateY(${x*5}deg)
+  rotateX(${-y*4}deg)
+  `;
 
-  item.style.setProperty(
-    "--x",
-    (Math.random()*400-200)+"px"
+});
+
+document.addEventListener("mouseleave",()=>{
+
+  hero.style.transform=
+  "perspective(1000px) rotateY(0) rotateX(0)";
+
+});
+
+
+/* =====================================
+   ЗАПУСК РАКЕТЫ
+===================================== */
+
+function launchRocket(){
+
+  const rocket=
+  document.querySelector(".hero .rocket");
+
+  rocket.animate(
+
+    [
+      {
+        transform:"translateX(-50%) translateY(0) scale(1)"
+      },
+
+      {
+        transform:"translateX(-50%) translateY(-70px) scale(1.05)"
+      },
+
+      {
+        transform:"translateX(-50%) translateY(-650px) scale(.5)"
+      }
+
+    ],
+
+    {
+      duration:1800,
+      easing:"cubic-bezier(.2,.8,.2,1)"
+    }
+
   );
 
-  item.style.animationDuration=
-    (3+Math.random()*4)+"s";
-
-  item.style.transform=
-    "rotate("+Math.random()*360+"deg)";
-
-  document
-    .getElementById("confetti")
-    .appendChild(item);
-
   setTimeout(()=>{
-    item.remove();
-  },7000);
+
+    rocket.style.transform=
+    "translateX(-50%) translateY(0)";
+
+    megaConfetti();
+
+  },1800);
+
 }
 
 
-/* ПРАЗДНИК */
+/* =====================================
+   КОСМИЧЕСКАЯ ИГРА
+===================================== */
 
-function launchConfetti(){
+const gameArea=
+document.getElementById("gameArea");
 
-  for(let i=0;i<120;i++){
+const gameRocket=
+document.getElementById("gameRocket");
+
+const scoreElement=
+document.getElementById("score");
+
+const missionElement=
+document.getElementById("mission");
+
+let score=0;
+let mission=0;
+let gameRunning=false;
+
+function startSpaceGame(){
+
+  score=0;
+  mission=0;
+  gameRunning=true;
+
+  scoreElement.textContent=0;
+  missionElement.textContent=0;
+
+  gameArea
+  .querySelectorAll(".collectStar")
+  .forEach(x=>x.remove());
+
+  spawnStar();
+
+}
+
+
+/* движение ракеты пальцем */
+
+gameArea.addEventListener("pointermove",(e)=>{
+
+  if(!gameRunning)return;
+
+  const rect=
+  gameArea.getBoundingClientRect();
+
+  let y=
+  e.clientY-rect.top;
+
+  y=Math.max(50,
+  Math.min(rect.height-50,y));
+
+  gameRocket.style.top=
+  y+"px";
+
+});
+
+
+/* касание */
+
+gameArea.addEventListener("touchmove",(e)=>{
+
+  if(!gameRunning)return;
+
+  e.preventDefault();
+
+  const touch=
+  e.touches[0];
+
+  const rect=
+  gameArea.getBoundingClientRect();
+
+  let y=
+  touch.clientY-rect.top;
+
+  y=Math.max(50,
+  Math.min(rect.height-50,y));
+
+  gameRocket.style.top=
+  y+"px";
+
+},{passive:false});
+
+
+function spawnStar(){
+
+  if(!gameRunning)return;
+
+  if(mission>=10){
+
+    finishMission();
+
+    return;
+  }
+
+  const star=
+  document.createElement("div");
+
+  star.className="collectStar";
+
+  star.textContent="⭐";
+
+  star.style.right=
+  "-50px";
+
+  star.style.top=
+  (20+Math.random()*
+  (gameArea.clientHeight-70))+"px";
+
+  gameArea.appendChild(star);
+
+  const duration=
+  3000+Math.random()*1800;
+
+  const start=
+  performance.now();
+
+  function move(time){
+
+    if(!star.isConnected)return;
+
+    const progress=
+    Math.min(1,(time-start)/duration);
+
+    const x=
+    gameArea.clientWidth-
+    progress*
+    (gameArea.clientWidth+80);
+
+    star.style.left=x+"px";
+
+    const rocketRect=
+    gameRocket.getBoundingClientRect();
+
+    const starRect=
+    star.getBoundingClientRect();
+
+    if(
+      rocketRect.left<starRect.right &&
+      rocketRect.right>starRect.left &&
+      rocketRect.top<starRect.bottom &&
+      rocketRect.bottom>starRect.top
+    ){
+
+      score++;
+      mission++;
+
+      scoreElement.textContent=score;
+      missionElement.textContent=mission;
+
+      star.remove();
+
+      confettiBurst(
+        starRect.left,
+        starRect.top
+      );
+
+      setTimeout(spawnStar,150);
+
+      return;
+    }
+
+    if(progress<1){
+
+      requestAnimationFrame(move);
+
+    }else{
+
+      star.remove();
+
+      setTimeout(spawnStar,100);
+
+    }
+
+  }
+
+  requestAnimationFrame(move);
+
+}
+
+
+function finishMission(){
+
+  gameRunning=false;
+
+  setTimeout(()=>{
+
+    alert(
+      "🏆 МИССИЯ ВЫПОЛНЕНА!\n\n"+
+      "Илья собрал все 10 звёзд! ⭐\n\n"+
+      "Ты настоящий космический герой! 🚀"
+    );
+
+    megaConfetti();
+
+  },300);
+
+}
+
+
+/* =====================================
+   ДИНОЗАВР
+===================================== */
+
+const dino=
+document.getElementById("dino");
+
+function dinoJump(){
+
+  dino.classList.remove("jump");
+
+  void dino.offsetWidth;
+
+  dino.classList.add("jump");
+
+  setTimeout(()=>{
+
+    dino.classList.remove("jump");
+
+  },700);
+
+  speakDino();
+
+}
+
+
+function speakDino(){
+
+  if("speechSynthesis" in window){
+
+    const voice=
+    new SpeechSynthesisUtterance("Рааааар!");
+
+    voice.lang="ru-RU";
+    voice.rate=.8;
+    voice.pitch=.7;
+
+    speechSynthesis.cancel();
+    speechSynthesis.speak(voice);
+
+  }
+
+}
+
+
+/* =====================================
+   ЯЙЦА
+===================================== */
+
+function eggClick(element){
+
+  element.textContent="🦖";
+
+  element.style.transform=
+  "scale(1.5) rotate(15deg)";
+
+  megaSmallConfetti();
+
+}
+
+
+/* =====================================
+   ПОДАРОК
+===================================== */
+
+function openGift(){
+
+  const final=
+  document.getElementById("final");
+
+  final.classList.add("show");
+
+  final.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+  megaConfetti();
+
+}
+
+
+/* =====================================
+   КОНФЕТТИ
+===================================== */
+
+function confettiBurst(x,y){
+
+  for(let i=0;i<10;i++){
+
+    const c=
+    document.createElement("div");
+
+    c.className="confetti";
+
+    c.style.left=x+"px";
+    c.style.top=y+"px";
+
+    c.style.background=
+    [
+      "#ff3978",
+      "#00d9ff",
+      "#ffd83d",
+      "#8d5cff",
+      "#35e28a"
+    ][
+      Math.floor(Math.random()*5)
+    ];
+
+    document.body.appendChild(c);
 
     setTimeout(()=>{
-      createConfetti();
+      c.remove();
+    },3000);
+
+  }
+
+}
+
+
+function megaSmallConfetti(){
+
+  for(let i=0;i<20;i++){
+
+    setTimeout(()=>{
+
+      confettiBurst(
+        Math.random()*window.innerWidth,
+        Math.random()*window.innerHeight
+      );
+
+    },i*20);
+
+  }
+
+}
+
+
+function megaConfetti(){
+
+  for(let i=0;i<100;i++){
+
+    setTimeout(()=>{
+
+      const c=
+      document.createElement("div");
+
+      c.className="confetti";
+
+      c.style.left=
+      Math.random()*100+"vw";
+
+      c.style.background=
+      [
+        "#ff3978",
+        "#00d9ff",
+        "#ffd83d",
+        "#8d5cff",
+        "#35e28a"
+      ][
+        Math.floor(Math.random()*5)
+      ];
+
+      c.style.width=
+      6+Math.random()*8+"px";
+
+      c.style.height=
+      8+Math.random()*12+"px";
+
+      c.style.animationDuration=
+      2+Math.random()*2+"s";
+
+      document.body.appendChild(c);
+
+      setTimeout(()=>{
+        c.remove();
+      },4500);
+
     },i*15);
 
   }
@@ -1003,74 +1686,31 @@ function launchConfetti(){
 }
 
 
-/* ПОДАРОК */
-
-let giftOpened=false;
-
-function openGift(){
-
-  const text=
-    document.getElementById("giftText");
-
-  if(!giftOpened){
-
-    giftOpened=true;
-
-    text.innerHTML=
-      "🎉 ТВОЙ ПОДАРОК — САМЫЙ ВЕСЁЛЫЙ ДЕНЬ! 🎉";
-
-    launchConfetti();
-
-  }else{
-
-    text.innerHTML=
-      "🚀 ПРИКЛЮЧЕНИЕ ПРОДОЛЖАЕТСЯ! ⭐";
-
-  }
-
-}
-
-
-/* АВТОМАТИЧЕСКОЕ ПРАЗДНИЧНОЕ ШОУ */
+/* =====================================
+   АВТОМАТИЧЕСКИЙ СТАРТ ЗВЁЗД
+===================================== */
 
 setTimeout(()=>{
-  launchConfetti();
-},1500);
 
+  const heroStars=10;
 
-/* ПАРАЛЛАКС */
+  for(let i=0;i<heroStars;i++){
 
-document.addEventListener("mousemove",(e)=>{
+    setTimeout(()=>{
 
-  const x=
-    (e.clientX/window.innerWidth-.5);
+      const x=
+      Math.random()*window.innerWidth;
 
-  const y=
-    (e.clientY/window.innerHeight-.5);
+      const y=
+      Math.random()*window.innerHeight;
 
-  document.querySelectorAll(".planet").forEach(
-    (planet,index)=>{
+      confettiBurst(x,y);
 
-      const power=(index+1)*15;
+    },i*300);
 
-      planet.style.transform=
-        `translate(${x*power}px,${y*power}px)`;
-
-    }
-  );
-
-});
-
-
-/* ПРИ КАСАНИИ НА ТЕЛЕФОНЕ */
-
-document.addEventListener("touchstart",()=>{
-
-  if(Math.random()>.7){
-    createConfetti();
   }
 
-},{passive:true});
+},1000);
 
 </script>
 
