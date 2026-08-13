@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10142f">
+
+<title>Илье 4 года! 🎉</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+  --blue: #35b9ff;
+  --cyan: #38f2d5;
+  --purple: #8b5cf6;
+  --yellow: #ffd84d;
+  --pink: #ff4fa3;
+  --orange: #ff8a3d;
+  --dark: #080b20;
+  --dark2: #111735;
+  --white: #ffffff;
+  --muted: #b9c3e8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Fredoka", sans-serif;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(53,185,255,.25), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(139,92,246,.25), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(255,79,163,.18), transparent 35%),
+    linear-gradient(180deg, #080b20, #111735 55%, #07091b);
+
+  color: white;
+  overflow-x: hidden;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(circle, #172252, #060817);
+
+  transition: 1s ease;
+}
+
+#intro.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-box {
+  text-align: center;
+  animation: introAppear 1.2s ease;
+}
+
+.intro-number {
+  font-size: 140px;
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--blue),
+      var(--purple),
+      var(--pink)
+    );
+
+  -webkit-background-clip: text;
+  color: transparent;
+
+  text-shadow:
+    0 0 50px rgba(53,185,255,.4);
+}
+
+.intro-text {
+  font-size: 25px;
+  letter-spacing: .12em;
+  color: white;
+}
+
+@keyframes introAppear {
+  from {
+    opacity: 0;
+    transform: scale(.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      circle at var(--mouse-x,50%) var(--mouse-y,50%),
+      rgba(53,185,255,.08),
+      transparent 25%
+    );
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 10px white;
+
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: .2;
+    transform: scale(.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloon {
+  position: absolute;
+
+  width: 80px;
+  height: 95px;
+
+  border-radius: 50% 50% 45% 45%;
+
+  opacity: .85;
+
+  animation: floatBalloon 5s ease-in-out infinite;
+}
+
+.balloon::after {
+  content: "";
+
+  position: absolute;
+
+  width: 1px;
+  height: 100px;
+
+  background: rgba(255,255,255,.35);
+
+  left: 50%;
+  top: 94px;
+}
+
+.balloon::before {
+  content: "";
+
+  position: absolute;
+
+  bottom: -7px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid currentColor;
+}
+
+.balloon.one {
+  background: var(--pink);
+  color: var(--pink);
+  left: 5%;
+  top: 15%;
+}
+
+.balloon.two {
+  background: var(--cyan);
+  color: var(--cyan);
+  right: 6%;
+  top: 18%;
+
+  animation-delay: 1s;
+}
+
+.balloon.three {
+  background: var(--yellow);
+  color: var(--yellow);
+  left: 12%;
+  bottom: 10%;
+
+  animation-delay: 2s;
+}
+
+.balloon.four {
+  background: var(--purple);
+  color: var(--purple);
+  right: 10%;
+  bottom: 12%;
+
+  animation-delay: 1.5s;
+}
+
+@keyframes floatBalloon {
+  0%,100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 900px;
+  position: relative;
+  z-index: 3;
+}
+
+.badge {
+  display: inline-block;
+
+  padding: 10px 20px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.08);
+
+  border: 1px solid rgba(255,255,255,.15);
+
+  color: var(--cyan);
+
+  font-size: 13px;
+  letter-spacing: .15em;
+
+  backdrop-filter: blur(15px);
+
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 11vw, 150px);
+
+  line-height: .85;
+
+  font-weight: 800;
+
+  letter-spacing: -.05em;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff,
+      var(--cyan),
+      var(--blue),
+      var(--purple),
+      var(--pink)
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  filter:
+    drop-shadow(0 20px 40px rgba(53,185,255,.2));
+}
+
+.hero-age {
+  margin-top: 25px;
+
+  font-size: clamp(35px, 6vw, 70px);
+
+  font-weight: 700;
+
+  color: var(--yellow);
+
+  text-shadow:
+    0 0 25px rgba(255,216,77,.4);
+}
+
+.hero-subtitle {
+  margin-top: 25px;
+
+  font-size: clamp(20px, 3vw, 30px);
+
+  color: white;
+}
+
+.hero-description {
+  margin: 18px auto 35px;
+
+  max-width: 650px;
+
+  color: var(--muted);
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.main-button {
+  display: inline-block;
+
+  padding: 17px 32px;
+
+  border-radius: 999px;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  text-decoration: none;
+
+  background:
+    linear-gradient(
+      100deg,
+      var(--blue),
+      var(--purple),
+      var(--pink)
+    );
+
+  box-shadow:
+    0 15px 45px rgba(53,185,255,.25);
+
+  transition: .35s;
+
+  cursor: pointer;
+
+  border: none;
+}
+
+.main-button:hover {
+  transform: translateY(-6px) scale(1.03);
+
+  box-shadow:
+    0 20px 60px rgba(139,92,246,.4);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+  padding: 110px 20px;
+}
+
+.container {
+  width: min(1100px, 100%);
+  margin: auto;
+}
+
+.section-label {
+  text-align: center;
+
+  color: var(--cyan);
+
+  font-size: 12px;
+
+  letter-spacing: .25em;
+
+  margin-bottom: 15px;
+}
+
+.section-title {
+  text-align: center;
+
+  font-size: clamp(38px, 6vw, 70px);
+
+  line-height: 1;
+
+  margin-bottom: 25px;
+}
+
+.section-text {
+  max-width: 700px;
+
+  margin: auto;
+
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+/* =========================
+   MESSAGE CARD
+========================= */
+
+.message-card {
+  margin: 50px auto 0;
+
+  max-width: 850px;
+
+  padding: 50px;
+
+  border-radius: 35px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.1),
+      rgba(255,255,255,.035)
+    );
+
+  border: 1px solid rgba(255,255,255,.14);
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.35);
+
+  backdrop-filter: blur(25px);
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.message-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background: var(--blue);
+
+  opacity: .08;
+
+  filter: blur(80px);
+
+  top: -150px;
+  left: -100px;
+}
+
+.message-card p {
+  position: relative;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: clamp(20px, 3vw, 27px);
+
+  line-height: 1.7;
+
+  color: #f5f7ff;
+}
+
+.signature {
+  margin-top: 35px;
+
+  color: var(--yellow);
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.cards {
+  margin-top: 55px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.card {
+  padding: 35px 25px;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,.055);
+
+  border: 1px solid rgba(255,255,255,.1);
+
+  text-align: center;
+
+  transition: .4s;
+
+  backdrop-filter: blur(15px);
+}
+
+.card:hover {
+  transform:
+    translateY(-10px)
+    rotateX(3deg);
+
+  border-color:
+    rgba(53,185,255,.45);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.25);
+}
+
+.card-icon {
+  font-size: 55px;
+
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 23px;
+
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--muted);
+
+  line-height: 1.6;
+}
+
+/* =========================
+   BIG NUMBER
+========================= */
+
+.age-section {
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.big-four {
+  font-size: clamp(180px, 35vw, 450px);
+
+  line-height: .7;
+
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--yellow),
+      var(--orange),
+      var(--pink),
+      var(--purple),
+      var(--blue)
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  filter:
+    drop-shadow(0 20px 60px rgba(255,138,61,.25));
+
+  animation:
+    numberFloat 4s ease-in-out infinite;
+}
+
+@keyframes numberFloat {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+.age-caption {
+  margin-top: 25px;
+
+  font-size: clamp(25px, 4vw, 45px);
+
+  font-weight: 700;
+
+  color: white;
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-area {
+  text-align: center;
+
+  margin-top: 50px;
+}
+
+.gift {
+  width: 150px;
+  height: 120px;
+
+  margin: 0 auto 30px;
+
+  position: relative;
+
+  cursor: pointer;
+
+  transition: .4s;
+}
+
+.gift:hover {
+  transform:
+    translateY(-10px)
+    scale(1.05);
+}
+
+.gift-box {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 150px;
+  height: 90px;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4fa3,
+      #8b5cf6
+    );
+
+  box-shadow:
+    0 20px 40px rgba(255,79,163,.25);
+}
+
+.gift-ribbon {
+  position: absolute;
+
+  left: 62px;
+
+  width: 26px;
+  height: 120px;
+
+  background: var(--yellow);
+
+  z-index: 2;
+}
+
+.gift-lid {
+  position: absolute;
+
+  left: -8px;
+  top: 15px;
+
+  width: 166px;
+  height: 30px;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff72b5,
+      #a56bff
+    );
+
+  z-index: 3;
+
+  transition: .7s;
+}
+
+.gift.open .gift-lid {
+  transform:
+    translateY(-55px)
+    rotate(-5deg);
+}
+
+.gift-message {
+  display: none;
+
+  max-width: 650px;
+
+  margin: 25px auto;
+
+  padding: 30px;
+
+  border-radius: 25px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  border:
+    1px solid rgba(255,216,77,.35);
+
+  animation:
+    giftMessage .7s ease;
+}
+
+.gift-message.show {
+  display: block;
+}
+
+@keyframes giftMessage {
+  from {
+    opacity: 0;
+    transform: scale(.8) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.gift-message h3 {
+  color: var(--yellow);
+
+  font-size: 28px;
+
+  margin-bottom: 12px;
+}
+
+.gift-message p {
+  color: white;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 50px 20px;
+
+  text-align: center;
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+
+  color: #7781a8;
+
+  font-size: 13px;
+}
+
+.footer-love {
+  font-size: 30px;
+
+  margin-bottom: 10px;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+  position: fixed;
+
+  width: 10px;
+  height: 16px;
+
+  top: -30px;
+
+  z-index: 999;
+
+  pointer-events: none;
+
+  animation:
+    confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  to {
+    transform:
+      translateY(110vh)
+      rotate(720deg);
+
+    opacity: 0;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px) {
+
+  .balloon {
+    transform: scale(.65);
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .message-card {
+    padding: 30px 22px;
+  }
+
+}
+
+@media(max-width:500px) {
+
+  .hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .intro-number {
+    font-size: 100px;
+  }
+
+  section {
+    padding: 80px 15px;
+  }
+
+  .balloon.one {
+    left: -20px;
+  }
+
+  .balloon.two {
+    right: -20px;
+  }
+
+  .balloon.three,
+  .balloon.four {
+    display: none;
+  }
+
+}
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion:reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+
+<div id="intro">
+
+  <div class="intro-box">
+
+    <div class="intro-number">
+      4
+    </div>
+
+    <div class="intro-text">
+      ЛЕТ ИЛЬЕ 🎉
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="bg-glow"></div>
+
+<div class="stars" id="stars"></div>
+
+
+<!-- BALLOONS -->
+
+<div class="balloon one"></div>
+<div class="balloon two"></div>
+<div class="balloon three"></div>
+<div class="balloon four"></div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      ОСОБЕННЫЙ ДЕНЬ · 14 АВГУСТА
+    </div>
+
+    <h1>
+      ИЛЬЯ
+    </h1>
+
+    <div class="hero-age">
+      ТЕБЕ 4 ГОДА! 🎂
+    </div>
+
+    <div class="hero-subtitle">
+      С ДНЁМ РОЖДЕНИЯ! 🎉
+    </div>
+
+    <p class="hero-description">
+      Сегодня твой день — день улыбок, подарков,
+      веселья и настоящих приключений!
+    </p>
+
+    <a
+      href="#message"
+      class="main-button"
+    >
+      ОТКРЫТЬ ПОЗДРАВЛЕНИЕ ✨
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- MESSAGE -->
+
+<section id="message">
+
+  <div class="container">
+
+    <div class="section-label">
+      ОТ ДЯДИ МИШИ ❤️
+    </div>
+
+    <h2 class="section-title">
+      ИЛЬЯ, ЭТО ДЛЯ ТЕБЯ!
+    </h2>
+
+    <div class="message-card">
+
+      <p>
+        Илюша, поздравляю тебя с твоим
+        <strong>4-м днём рождения!</strong> 🎉
+        <br><br>
+
+        Желаю тебе расти большим, сильным,
+        весёлым и счастливым!
+        Пусть каждый день будет похож
+        на настоящее приключение.
+        <br><br>
+
+        Желаю тебе много игрушек,
+        крутых подарков, весёлых игр,
+        новых открытий и огромного
+        количества улыбок! 🚀
+        <br><br>
+
+        Пусть рядом всегда будут люди,
+        которые тебя любят,
+        поддерживают и радуются
+        каждому твоему успеху.
+        <br><br>
+
+        Никогда не переставай мечтать,
+        исследовать этот огромный мир
+        и радоваться маленьким чудесам.
+        <br><br>
+
+        <strong>
+          С ДНЁМ РОЖДЕНИЯ, ИЛЬЯ!
+        </strong> 🎂🎈🎁
+      </p>
+
+      <div class="signature">
+        Твой дядя Миша ❤️
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOUR -->
+
+<section class="age-section">
+
+  <div class="container">
+
+    <div class="section-label">
+      ГЛАВНАЯ ЦИФРА ДНЯ
+    </div>
+
+    <div class="big-four">
+      4
+    </div>
+
+    <div class="age-caption">
+      ГОДА — ЭТО ТОЛЬКО НАЧАЛО! 🚀
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WISHES -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-label">
+      ТЕБЕ ЖЕЛАЮТ
+    </div>
+
+    <h2 class="section-title">
+      ЦЕЛУЮ ВСЕЛЕННУЮ! 🌎
+    </h2>
+
+    <p class="section-text">
+      Пусть впереди тебя ждёт огромное количество
+      весёлых моментов, интересных открытий
+      и невероятных приключений.
+    </p>
+
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">
+          🚀
+        </div>
+
+        <h3>
+          ПРИКЛЮЧЕНИЙ
+        </h3>
+
+        <p>
+          Пусть каждый день приносит
+          что-нибудь новое и интересное!
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🎮
+        </div>
+
+        <h3>
+          ВЕСЕЛЬЯ
+        </h3>
+
+        <p>
+          Побольше игр, смеха,
+          развлечений и крутых моментов!
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          ⭐
+        </div>
+
+        <h3>
+          МЕЧТ
+        </h3>
+
+        <p>
+          Пусть твои самые большие
+          мечты обязательно сбываются!
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GIFT -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-label">
+      А ЗДЕСЬ ЕЩЁ ОДИН СЮРПРИЗ 🎁
+    </div>
+
+    <h2 class="section-title">
+      ОТКРОЙ ПОДАРОК
+    </h2>
+
+    <p class="section-text">
+      Нажми на подарок. Внутри кое-что
+      специально для тебя!
+    </p>
+
+
+    <div class="gift-area">
+
+      <div
+        class="gift"
+        id="gift"
+      >
+
+        <div class="gift-lid"></div>
+
+        <div class="gift-ribbon"></div>
+
+        <div class="gift-box"></div>
+
+      </div>
+
+
+      <div
+        class="gift-message"
+        id="giftMessage"
+      >
+
+        <h3>
+          🎉 СЮРПРИЗ!
+        </h3>
+
+        <p>
+          Илья, запомни:
+          <br><br>
+
+          Ты невероятный!
+          <br>
+          Ты умный!
+          <br>
+          Ты весёлый!
+          <br>
+          Ты самый крутой!
+          <br><br>
+
+          И дядя Миша тебя очень любит! ❤️
+          <br><br>
+
+          С 4-летием, чемпион! 🏆
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-label">
+      14 АВГУСТА
+    </div>
+
+    <h2 class="section-title">
+      С ДНЁМ РОЖДЕНИЯ,
+      ИЛЬЯ! 🎂
+    </h2>
+
+    <p class="section-text">
+      Пусть этот день запомнится тебе
+      как один из самых весёлых дней!
+    </p>
+
+    <div style="
+      text-align:center;
+      margin-top:40px;
+    ">
+
+      <button
+        class="main-button"
+        onclick="celebrate()"
+      >
+        ЗАПУСТИТЬ ПРАЗДНИК 🎉
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="footer-love">
+    ❤️
+  </div>
+
+  Сделано с любовью специально для Ильи
+
+  <br><br>
+
+  От дяди Миши · 14 августа
+
+</footer>
+
+
+<script>
+
+/* =========================
+   INTRO
+========================= */
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    document
+      .getElementById("intro")
+      .classList.add("hide");
+
+  }, 2200);
+
+});
+
+
+/* =========================
+   STARS
+========================= */
+
+const stars =
+  document.getElementById("stars");
+
+for(let i = 0; i < 90; i++) {
+
+  const star =
+    document.createElement("div");
+
+  star.className = "star";
+
+  star.style.left =
+    Math.random() * 100 + "%";
+
+  star.style.top =
+    Math.random() * 100 + "%";
+
+  const size =
+    2 + Math.random() * 4;
+
+  star.style.width =
+    size + "px";
+
+  star.style.height =
+    size + "px";
+
+  star.style.animationDelay =
+    Math.random() * 3 + "s";
+
+  stars.appendChild(star);
+
+}
+
+
+/* =========================
+   MOUSE LIGHT
+========================= */
+
+document.addEventListener(
+  "mousemove",
+  (event) => {
+
+    document.documentElement.style
+      .setProperty(
+        "--mouse-x",
+        event.clientX + "px"
+      );
+
+    document.documentElement.style
+      .setProperty(
+        "--mouse-y",
+        event.clientY + "px"
+      );
+
+  }
+);
+
+
+/* =========================
+   GIFT
+========================= */
+
+const gift =
+  document.getElementById("gift");
+
+const giftMessage =
+  document.getElementById("giftMessage");
+
+gift.addEventListener("click", () => {
+
+  gift.classList.toggle("open");
+
+  giftMessage.classList.toggle("show");
+
+  if(gift.classList.contains("open")) {
+
+    celebrate();
+
+  }
+
+});
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti() {
+
+  const piece =
+    document.createElement("div");
+
+  piece.className = "confetti";
+
+  const colors = [
+    "#35b9ff",
+    "#38f2d5",
+    "#8b5cf6",
+    "#ffd84d",
+    "#ff4fa3",
+    "#ff8a3d",
+    "#ffffff"
+  ];
+
+  piece.style.background =
+    colors[
+      Math.floor(
+        Math.random() * colors.length
+      )
+    ];
+
+  piece.style.left =
+    Math.random() * 100 + "vw";
+
+  piece.style.width =
+    (6 + Math.random() * 9) + "px";
+
+  piece.style.height =
+    (8 + Math.random() * 14) + "px";
+
+  piece.style.animationDuration =
+    (2.5 + Math.random() * 3) + "s";
+
+  piece.style.transform =
+    `rotate(${Math.random()*360}deg)`;
+
+  document.body.appendChild(piece);
+
+  setTimeout(() => {
+
+    piece.remove();
+
+  }, 6000);
+
+}
+
+
+/* =========================
+   CELEBRATION
+========================= */
+
+function celebrate() {
+
+  for(let i = 0; i < 100; i++) {
+
+    setTimeout(
+      createConfetti,
+      i * 15
+    );
+
+  }
+
+}
+
+
+/* =========================
+   AUTO CONFETTI
+========================= */
+
+setTimeout(() => {
+
+  for(let i = 0; i < 25; i++) {
+
+    setTimeout(
+      createConfetti,
+      i * 40
+    );
+
+  }
+
+}, 2800);
+
+</script>
+
+</body>
+</html>
